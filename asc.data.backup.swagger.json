@@ -1,0 +1,651 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "ASC.Data.Backup",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/2.0/Backup/getbackupschedule": {
+      "get": {
+        "tags": [
+          "Backup"
+        ],
+        "summary": "Returns the backup schedule of the current portal.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ASC.Data.Backup.BackupAjaxHandler+Schedule"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ASC.Data.Backup.BackupAjaxHandler+Schedule"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ASC.Data.Backup.BackupAjaxHandler+Schedule"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/2.0/Backup/createbackupschedule": {
+      "post": {
+        "tags": [
+          "Backup"
+        ],
+        "summary": "Creates the backup schedule of the current portal with the parameters specified in the request.",
+        "requestBody": {
+          "description": "Backup schedule parameters",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ASC.Data.Backup.ApiModels.BackupScheduleDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ASC.Data.Backup.ApiModels.BackupScheduleDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ASC.Data.Backup.ApiModels.BackupScheduleDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/2.0/Backup/deletebackupschedule": {
+      "delete": {
+        "tags": [
+          "Backup"
+        ],
+        "summary": "Deletes the backup schedule of the current portal.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/2.0/Backup/startbackup": {
+      "post": {
+        "tags": [
+          "Backup"
+        ],
+        "summary": "Starts the backup of the current portal with the parameters specified in the request.",
+        "requestBody": {
+          "description": "Backup parameters",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ASC.Data.Backup.ApiModels.BackupDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ASC.Data.Backup.ApiModels.BackupDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ASC.Data.Backup.ApiModels.BackupDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ASC.Data.Backup.Contracts.BackupProgress"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ASC.Data.Backup.Contracts.BackupProgress"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ASC.Data.Backup.Contracts.BackupProgress"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/2.0/Backup/getbackupprogress": {
+      "get": {
+        "tags": [
+          "Backup"
+        ],
+        "summary": "Returns the progress of the started backup.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ASC.Data.Backup.Contracts.BackupProgress"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ASC.Data.Backup.Contracts.BackupProgress"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ASC.Data.Backup.Contracts.BackupProgress"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/2.0/Backup/getbackuphistory": {
+      "get": {
+        "tags": [
+          "Backup"
+        ],
+        "summary": "Returns the history of the started backup.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ASC.Data.Backup.Contracts.BackupHistoryRecord"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ASC.Data.Backup.Contracts.BackupHistoryRecord"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ASC.Data.Backup.Contracts.BackupHistoryRecord"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/2.0/Backup/deletebackup/{id}": {
+      "delete": {
+        "tags": [
+          "Backup"
+        ],
+        "summary": "Deletes the backup with the ID specified in the request.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Backup ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/2.0/Backup/deletebackuphistory": {
+      "delete": {
+        "tags": [
+          "Backup"
+        ],
+        "summary": "Deletes the backup history of the current portal.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/2.0/Backup/startrestore": {
+      "post": {
+        "tags": [
+          "Backup"
+        ],
+        "summary": "Starts the data restoring process of the current portal with the parameters specified in the request.",
+        "requestBody": {
+          "description": "Restoring parameters",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ASC.Data.Backup.ApiModels.BackupRestoreDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ASC.Data.Backup.ApiModels.BackupRestoreDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ASC.Data.Backup.ApiModels.BackupRestoreDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ASC.Data.Backup.Contracts.BackupProgress"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ASC.Data.Backup.Contracts.BackupProgress"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ASC.Data.Backup.Contracts.BackupProgress"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/2.0/Backup/getrestoreprogress": {
+      "get": {
+        "tags": [
+          "Backup"
+        ],
+        "summary": "Returns the progress of the started restoring process.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ASC.Data.Backup.Contracts.BackupProgress"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ASC.Data.Backup.Contracts.BackupProgress"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ASC.Data.Backup.Contracts.BackupProgress"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/2.0/Backup/backuptmp": {
+      "get": {
+        "tags": [
+          "Backup"
+        ],
+        "summary": "Returns a path to the temporary folder with the stored backup.",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ASC.Api.Collections.ItemKeyValuePair`2[[System.Object, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "nullable": true
+          },
+          "value": {
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ASC.Data.Backup.ApiModels.BackupDto": {
+        "type": "object",
+        "properties": {
+          "storageType": {
+            "type": "string",
+            "description": "Storage type",
+            "nullable": true,
+            "example": "Documents"
+          },
+          "storageParams": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ASC.Api.Collections.ItemKeyValuePair`2[[System.Object, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+            },
+            "description": "Storage parameters",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": ""
+      },
+      "ASC.Data.Backup.ApiModels.BackupRestoreDto": {
+        "type": "object",
+        "properties": {
+          "backupId": {
+            "type": "string",
+            "description": "Backup ID",
+            "nullable": true
+          },
+          "storageType": {
+            "description": "Storage type",
+            "nullable": true
+          },
+          "storageParams": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ASC.Api.Collections.ItemKeyValuePair`2[[System.Object, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+            },
+            "description": "Storage parameters",
+            "nullable": true
+          },
+          "notify": {
+            "type": "boolean",
+            "description": "Notifies users about portal restoring process or not"
+          }
+        },
+        "additionalProperties": false,
+        "description": ""
+      },
+      "ASC.Data.Backup.ApiModels.BackupScheduleDto": {
+        "type": "object",
+        "properties": {
+          "storageType": {
+            "type": "string",
+            "description": "Storage type",
+            "nullable": true,
+            "example": "Documents"
+          },
+          "storageParams": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ASC.Api.Collections.ItemKeyValuePair`2[[System.Object, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+            },
+            "description": "Storage parameters",
+            "nullable": true
+          },
+          "backupsStored": {
+            "type": "string",
+            "description": "Maximum number of the stored backup copies",
+            "nullable": true
+          },
+          "cronParams": {
+            "$ref": "#/components/schemas/ASC.Data.Backup.ApiModels.Cron"
+          }
+        },
+        "additionalProperties": false,
+        "description": ""
+      },
+      "ASC.Data.Backup.ApiModels.Cron": {
+        "type": "object",
+        "properties": {
+          "period": {
+            "type": "string",
+            "description": "Period",
+            "nullable": true,
+            "example": "0"
+          },
+          "hour": {
+            "type": "string",
+            "description": "Hour",
+            "nullable": true,
+            "example": "0"
+          },
+          "day": {
+            "type": "string",
+            "description": "Day",
+            "nullable": true,
+            "example": "0"
+          }
+        },
+        "additionalProperties": false,
+        "description": ""
+      },
+      "ASC.Data.Backup.BackupAjaxHandler+BackupPeriod": {
+        "enum": [
+          0,
+          1,
+          2
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "ASC.Data.Backup.BackupAjaxHandler+CronParams": {
+        "type": "object",
+        "properties": {
+          "period": {
+            "$ref": "#/components/schemas/ASC.Data.Backup.BackupAjaxHandler+BackupPeriod"
+          },
+          "hour": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "day": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ASC.Data.Backup.BackupAjaxHandler+Schedule": {
+        "type": "object",
+        "properties": {
+          "storageType": {
+            "$ref": "#/components/schemas/ASC.Data.Backup.Contracts.BackupStorageType"
+          },
+          "storageParams": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "cronParams": {
+            "$ref": "#/components/schemas/ASC.Data.Backup.BackupAjaxHandler+CronParams"
+          },
+          "backupsStored": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "lastBackupTime": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ASC.Data.Backup.Contracts.BackupHistoryRecord": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "fileName": {
+            "type": "string",
+            "nullable": true
+          },
+          "storageType": {
+            "$ref": "#/components/schemas/ASC.Data.Backup.Contracts.BackupStorageType"
+          },
+          "createdOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "expiresOn": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ASC.Data.Backup.Contracts.BackupProgress": {
+        "type": "object",
+        "properties": {
+          "isCompleted": {
+            "type": "boolean"
+          },
+          "progress": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "error": {
+            "type": "string",
+            "nullable": true
+          },
+          "link": {
+            "type": "string",
+            "nullable": true
+          },
+          "tenantId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "backupProgressEnum": {
+            "$ref": "#/components/schemas/ASC.Data.Backup.Contracts.BackupProgressEnum"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ASC.Data.Backup.Contracts.BackupProgressEnum": {
+        "enum": [
+          0,
+          1,
+          2
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "ASC.Data.Backup.Contracts.BackupStorageType": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "type": "integer",
+        "format": "int32"
+      }
+    }
+  }
+}
