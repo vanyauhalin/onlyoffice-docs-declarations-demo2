@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "ASC.People",
-    "version": "v1"
+    "version": "v2"
   },
   "paths": {
     "/api/2.0/Group": {
@@ -41,8 +41,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get groups"
       },
       "post": {
         "tags": [
@@ -89,8 +104,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Add a new group"
       }
     },
     "/api/2.0/Group/full": {
@@ -129,8 +159,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get groups information"
       }
     },
     "/api/2.0/Group/search": {
@@ -178,8 +223,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get groups by a group name"
       }
     },
     "/api/2.0/Group/{groupid}": {
@@ -221,8 +281,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get a group"
       },
       "put": {
         "tags": [
@@ -281,8 +356,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Update a group"
       },
       "delete": {
         "tags": [
@@ -321,8 +411,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Delete a group"
       }
     },
     "/api/2.0/Group/user/{userid}": {
@@ -372,8 +477,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get user groups"
       }
     },
     "/api/2.0/Group/{groupid}/members/{newgroupid}": {
@@ -424,8 +544,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Move group members"
       }
     },
     "/api/2.0/Group/{groupid}/members": {
@@ -486,8 +621,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Replace group members"
       },
       "put": {
         "tags": [
@@ -546,8 +696,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Add group members"
       },
       "delete": {
         "tags": [
@@ -606,8 +771,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Remove group members"
       }
     },
     "/api/2.0/Group/{groupid}/manager": {
@@ -668,8 +848,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Set a group manager"
       }
     },
     "/api/2.0/people/{userid}/contacts": {
@@ -729,8 +924,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Delete user contacts"
       },
       "post": {
         "tags": [
@@ -788,8 +998,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Set user contacts"
       },
       "put": {
         "tags": [
@@ -847,8 +1072,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Update user contacts"
       }
     },
     "/api/2.0/people/phone": {
@@ -880,8 +1120,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Send a notification to change a phone"
       }
     },
     "/api/2.0/people/{userid}/photo/thumbnails": {
@@ -941,8 +1196,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Create photo thumbnails"
       }
     },
     "/api/2.0/people/{userid}/photo": {
@@ -982,8 +1252,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Delete a user photo"
       },
       "get": {
         "tags": [
@@ -1021,8 +1306,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get a user photo"
       },
       "put": {
         "tags": [
@@ -1080,8 +1380,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Update a user photo"
       },
       "post": {
         "tags": [
@@ -1108,7 +1423,7 @@
                   "formCollection": {
                     "type": "array",
                     "items": {
-                      "$ref": "#/components/schemas/System.Collections.Generic.KeyValuePair`2[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[Microsoft.Extensions.Primitives.StringValues, Microsoft.Extensions.Primitives, Version=7.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]"
+                      "$ref": "#/components/schemas/System.Collections.Generic.KeyValuePair<System.String, Microsoft.Extensions.Primitives.StringValues>"
                     }
                   }
                 }
@@ -1141,8 +1456,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Upload a user photo"
       }
     },
     "/api/2.0/people/reassign/progress/{userid}": {
@@ -1183,8 +1513,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the reassignment progress"
       }
     },
     "/api/2.0/people/reassign/start": {
@@ -1233,8 +1578,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Start the data reassignment"
       }
     },
     "/api/2.0/people/reassign/terminate": {
@@ -1283,8 +1643,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Terminate the data reassignment"
       }
     },
     "/api/2.0/people/remove/progress/{userid}": {
@@ -1325,8 +1700,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the deletion progress"
       }
     },
     "/api/2.0/people/self/delete": {
@@ -1338,8 +1728,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Send the deletion instructions"
       }
     },
     "/api/2.0/people/remove/start": {
@@ -1388,8 +1793,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Start the data deletion"
       }
     },
     "/api/2.0/people/remove/terminate": {
@@ -1421,8 +1841,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Terminate the data deletion"
       }
     },
     "/api/2.0/people/thirdparty/providers": {
@@ -1495,7 +1930,8 @@
               }
             }
           }
-        }
+        },
+        "x-shortName": "Get third-party accounts"
       }
     },
     "/api/2.0/people/thirdparty/linkaccount": {
@@ -1527,8 +1963,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Link a third-pary account"
       }
     },
     "/api/2.0/people/thirdparty/signup": {
@@ -1561,7 +2012,8 @@
           "200": {
             "description": "Success"
           }
-        }
+        },
+        "x-shortName": "Create a third-pary account"
       }
     },
     "/api/2.0/people/thirdparty/unlinkaccount": {
@@ -1583,8 +2035,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Unlink a third-pary account"
       }
     },
     "/api/2.0/people/active": {
@@ -1633,8 +2100,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Add an activated user"
       }
     },
     "/api/2.0/people": {
@@ -1683,8 +2165,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Add a user"
       },
       "get": {
         "tags": [
@@ -1720,8 +2217,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get profiles"
       }
     },
     "/api/2.0/people/invite": {
@@ -1779,8 +2291,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Invite users"
       },
       "put": {
         "tags": [
@@ -1836,8 +2363,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Resend activation emails"
       }
     },
     "/api/2.0/people/{userid}/password": {
@@ -1898,8 +2440,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Change a user password"
       }
     },
     "/api/2.0/people/{userid}": {
@@ -1939,8 +2496,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Delete a user"
       },
       "put": {
         "tags": [
@@ -1998,8 +2570,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Update a user"
       }
     },
     "/api/2.0/people/@self": {
@@ -2028,8 +2615,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Delete my profile"
       },
       "get": {
         "tags": [
@@ -2056,8 +2658,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get my profile"
       }
     },
     "/api/2.0/people/status/{status}/search": {
@@ -2114,8 +2731,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Search users by status filter"
       }
     },
     "/api/2.0/people/email": {
@@ -2154,8 +2786,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get a profile by user email"
       },
       "post": {
         "tags": [
@@ -2185,8 +2832,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Send instructions to change email"
       }
     },
     "/api/2.0/people/{username}": {
@@ -2226,8 +2888,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get a profile by user name"
       }
     },
     "/api/2.0/people/status/{status}": {
@@ -2276,8 +2953,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get profiles by status"
       },
       "put": {
         "tags": [
@@ -2344,8 +3036,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Change a user status"
       }
     },
     "/api/2.0/people/filter": {
@@ -2453,8 +3160,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Search users and their information by extended filter"
       }
     },
     "/api/2.0/people/info": {
@@ -2483,8 +3205,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the People information"
       }
     },
     "/api/2.0/people/search": {
@@ -2532,8 +3269,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Search users (using query parameters)"
       }
     },
     "/api/2.0/people/@search/{query}": {
@@ -2582,8 +3334,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Search users"
       }
     },
     "/api/2.0/people/simple/filter": {
@@ -2691,8 +3458,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Search users by extended filter"
       }
     },
     "/api/2.0/people/register": {
@@ -2742,7 +3524,8 @@
               }
             }
           }
-        }
+        },
+        "x-shortName": "Register a Personal account"
       }
     },
     "/api/2.0/people/delete": {
@@ -2800,8 +3583,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Delete users"
       }
     },
     "/api/2.0/people/theme": {
@@ -2830,8 +3628,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get portal theme"
       },
       "put": {
         "tags": [
@@ -2878,8 +3691,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Change portal theme"
       }
     },
     "/api/2.0/people/password": {
@@ -2912,7 +3740,8 @@
           "200": {
             "description": "Success"
           }
-        }
+        },
+        "x-shortName": "Remind a user password"
       }
     },
     "/api/2.0/people/activationstatus/{activationstatus}": {
@@ -2981,8 +3810,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Set an activation status to the users"
       }
     },
     "/api/2.0/people/{userid}/culture": {
@@ -3042,8 +3886,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Update user language"
       }
     },
     "/api/2.0/people/type/{type}": {
@@ -3112,8 +3971,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Change a user type"
       }
     },
     "/api/2.0/people/recalculatequota": {
@@ -3125,8 +3999,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Recalculate quota"
       }
     },
     "/api/2.0/people/checkrecalculatequota": {
@@ -3155,8 +4044,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Check quota recalculation"
       }
     },
     "/api/2.0/people/quota": {
@@ -3214,8 +4118,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Change a user quota limit"
       }
     },
     "/api/2.0/people/room/{id}": {
@@ -3284,8 +4203,22 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ]
       }
     }
   },
@@ -4306,7 +5239,7 @@
         ],
         "type": "string"
       },
-      "System.Collections.Generic.KeyValuePair`2[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[Microsoft.Extensions.Primitives.StringValues, Microsoft.Extensions.Primitives, Version=7.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]": {
+      "System.Collections.Generic.KeyValuePair<System.String, Microsoft.Extensions.Primitives.StringValues>": {
         "type": "object",
         "properties": {
           "key": {
@@ -4401,6 +5334,12 @@
           }
         },
         "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "asc_auth_key": {
+        "type": "apiKey",
+        "in": "cookie"
       }
     }
   }

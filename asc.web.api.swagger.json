@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "ASC.Web.Api",
-    "version": "v1"
+    "version": "v2"
   },
   "paths": {
     "/api/2.0/Authentication": {
@@ -32,7 +32,8 @@
               }
             }
           }
-        }
+        },
+        "x-shortName": "Check authentication"
       },
       "post": {
         "tags": [
@@ -80,7 +81,8 @@
               }
             }
           }
-        }
+        },
+        "x-shortName": "Authenticate a user"
       }
     },
     "/api/2.0/Authentication/{code}": {
@@ -140,7 +142,8 @@
               }
             }
           }
-        }
+        },
+        "x-shortName": "Authenticate a user by code"
       }
     },
     "/api/2.0/Authentication/logout": {
@@ -153,7 +156,8 @@
           "200": {
             "description": "Success"
           }
-        }
+        },
+        "x-shortName": "Log out"
       },
       "get": {
         "tags": [
@@ -164,7 +168,8 @@
           "200": {
             "description": "Success"
           }
-        }
+        },
+        "x-shortName": "Log out"
       }
     },
     "/api/2.0/Authentication/confirm": {
@@ -214,7 +219,8 @@
               }
             }
           }
-        }
+        },
+        "x-shortName": "Open confirmation email URL"
       }
     },
     "/api/2.0/Authentication/setphone": {
@@ -264,7 +270,8 @@
               }
             }
           }
-        }
+        },
+        "x-shortName": "Set a mobile phone"
       }
     },
     "/api/2.0/Authentication/sendsms": {
@@ -314,7 +321,8 @@
               }
             }
           }
-        }
+        },
+        "x-shortName": "Send SMS code"
       }
     },
     "/api/2.0/Capabilities": {
@@ -344,7 +352,8 @@
               }
             }
           }
-        }
+        },
+        "x-shortName": "Get portal capabilities"
       }
     },
     "/api/2.0/Capabilities{.format}": {
@@ -384,7 +393,8 @@
               }
             }
           }
-        }
+        },
+        "x-shortName": "Get portal capabilities"
       }
     },
     "/api/2.0/Feed/read": {
@@ -396,8 +406,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Read feeds"
       }
     },
     "/api/2.0/Feed/filter": {
@@ -484,8 +509,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get feeds"
       }
     },
     "/api/2.0/Feed/newfeedscount": {
@@ -497,8 +537,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Count fresh feeds"
       }
     },
     "/api/2.0/Modules": {
@@ -536,8 +591,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get modules"
       }
     },
     "/api/2.0/Modules/info": {
@@ -575,8 +645,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get modules information"
       }
     },
     "/api/2.0/portal/payment/url": {
@@ -628,8 +713,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the payment page URL"
       }
     },
     "/api/2.0/portal/payment/update": {
@@ -678,8 +778,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Update the payment quantity"
       }
     },
     "/api/2.0/portal/payment/account": {
@@ -701,8 +816,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the payment account"
       }
     },
     "/api/2.0/portal/payment/prices": {
@@ -714,8 +844,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get prices"
       }
     },
     "/api/2.0/portal/payment/currencies": {
@@ -753,8 +898,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get currencies"
       }
     },
     "/api/2.0/portal/payment/quotas": {
@@ -792,8 +952,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get quotas"
       }
     },
     "/api/2.0/portal/payment/quota": {
@@ -831,8 +1006,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get quota payment information"
       }
     },
     "/api/2.0/portal/payment/request": {
@@ -864,8 +1054,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Send a payment request"
       }
     },
     "/api/2.0/Portal": {
@@ -894,8 +1099,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get a portal"
       }
     },
     "/api/2.0/Portal/users/{userID}": {
@@ -936,8 +1156,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get a user by ID"
       }
     },
     "/api/2.0/Portal/users/invite/{employeeType}": {
@@ -960,8 +1195,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get an invitation link"
       }
     },
     "/api/2.0/Portal/getshortenlink": {
@@ -993,8 +1243,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get a shortened link"
       }
     },
     "/api/2.0/Portal/tenantextra": {
@@ -1033,8 +1298,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get an extra tenant license"
       }
     },
     "/api/2.0/Portal/usedspace": {
@@ -1066,8 +1346,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the used portal space"
       }
     },
     "/api/2.0/Portal/userscount": {
@@ -1099,8 +1394,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get a number of portal users"
       }
     },
     "/api/2.0/Portal/tariff": {
@@ -1139,8 +1449,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get a portal tariff"
       }
     },
     "/api/2.0/Portal/quota": {
@@ -1169,8 +1494,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get a portal quota"
       }
     },
     "/api/2.0/Portal/quota/right": {
@@ -1199,8 +1539,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the recommended quota"
       }
     },
     "/api/2.0/Portal/path": {
@@ -1222,8 +1577,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get a path to the portal"
       }
     },
     "/api/2.0/Portal/thumb": {
@@ -1245,8 +1615,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get a bookmark thumbnail"
       }
     },
     "/api/2.0/Portal/present/mark": {
@@ -1258,8 +1643,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Mark a gift message as read"
       }
     },
     "/api/2.0/Portal/mobile/registration": {
@@ -1291,8 +1691,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Register the mobile app installation"
       }
     },
     "/api/2.0/Portal/portalrename": {
@@ -1324,8 +1739,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Update a portal name"
       }
     },
     "/api/2.0/Portal/deleteportalimmediately": {
@@ -1337,8 +1767,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Delete a portal immediately"
       }
     },
     "/api/2.0/Portal/suspend": {
@@ -1350,8 +1795,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Send suspension instructions"
       },
       "put": {
         "tags": [
@@ -1361,8 +1821,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Deactivate a portal"
       }
     },
     "/api/2.0/Portal/delete": {
@@ -1374,8 +1849,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Send removal instructions"
       },
       "delete": {
         "tags": [
@@ -1385,8 +1875,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Delete a portal"
       }
     },
     "/api/2.0/Portal/continue": {
@@ -1398,8 +1903,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Restore a portal"
       }
     },
     "/api/2.0/Portal/sendcongratulations": {
@@ -1431,7 +1951,8 @@
           "200": {
             "description": "Success"
           }
-        }
+        },
+        "x-shortName": "Send congratulations"
       }
     },
     "/api/2.0/security/activeconnections": {
@@ -1443,8 +1964,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get active connections"
       }
     },
     "/api/2.0/security/activeconnections/logoutallchangepassword": {
@@ -1456,8 +1992,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Log out and change password"
       }
     },
     "/api/2.0/security/activeconnections/logoutall/{userId}": {
@@ -1481,8 +2032,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Log out for the user by ID"
       }
     },
     "/api/2.0/security/activeconnections/logoutallexceptthis": {
@@ -1494,8 +2060,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Log out from all connections"
       }
     },
     "/api/2.0/security/activeconnections/logout/{loginEventId}": {
@@ -1536,8 +2117,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Log out from the connection"
       }
     },
     "/api/2.0/Security/audit/login/last": {
@@ -1575,8 +2171,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get login history"
       }
     },
     "/api/2.0/Security/audit/events/last": {
@@ -1614,8 +2225,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get audit trail data"
       }
     },
     "/audit/login/filter": {
@@ -1688,8 +2314,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get filtered login events"
       }
     },
     "/audit/events/filter": {
@@ -1802,8 +2443,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get filtered audit trail data"
       }
     },
     "/api/2.0/Security/audit/types": {
@@ -1816,7 +2472,8 @@
           "200": {
             "description": "Success"
           }
-        }
+        },
+        "x-shortName": "Get audit trail types"
       }
     },
     "/audit/mappers": {
@@ -1847,7 +2504,8 @@
           "200": {
             "description": "Success"
           }
-        }
+        },
+        "x-shortName": "Get audit trail mappers"
       }
     },
     "/api/2.0/Security/audit/login/report": {
@@ -1859,8 +2517,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Generate the login history report"
       }
     },
     "/api/2.0/Security/audit/events/report": {
@@ -1872,8 +2545,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Generate the audit trail report"
       }
     },
     "/api/2.0/Security/audit/settings/lifetime": {
@@ -1902,8 +2590,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the audit trail settings"
       },
       "post": {
         "tags": [
@@ -1950,8 +2653,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Set the audit trail settings"
       }
     },
     "/api/2.0/Security/csp": {
@@ -1998,8 +2716,22 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ]
       },
       "get": {
         "tags": [
@@ -2075,8 +2807,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Save the Documents Firebase device token"
       }
     },
     "/api/2.0/settings/push/docsubscribe": {
@@ -2125,8 +2872,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Subscribe to Documents push notification"
       }
     },
     "/api/2.0/settings/customnavigation/getall": {
@@ -2164,8 +2926,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the custom navigation items"
       }
     },
     "/api/2.0/settings/customnavigation/getsample": {
@@ -2194,8 +2971,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get a custom navigation item sample"
       }
     },
     "/api/2.0/settings/customnavigation/get/{id}": {
@@ -2236,8 +3028,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get a custom navigation item by ID"
       }
     },
     "/api/2.0/settings/customnavigation/create": {
@@ -2286,8 +3093,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Add a custom navigation item"
       }
     },
     "/api/2.0/settings/customnavigation/delete/{id}": {
@@ -2311,8 +3133,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Delete a custom navigation item"
       }
     },
     "/api/2.0/settings/customschemas": {
@@ -2350,8 +3187,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get team templates"
       },
       "post": {
         "tags": [
@@ -2398,8 +3250,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Save the naming settings"
       },
       "put": {
         "tags": [
@@ -2446,8 +3313,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Create a custom team template"
       }
     },
     "/api/2.0/settings/customschemas/{id}": {
@@ -2487,8 +3369,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get a team template by ID"
       }
     },
     "/api/2.0/settings/greetingsettings": {
@@ -2500,8 +3397,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get greeting settings"
       },
       "post": {
         "tags": [
@@ -2531,8 +3443,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Save the greeting settings"
       }
     },
     "/api/2.0/settings/greetingsettings/isdefault": {
@@ -2561,8 +3488,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Check the default greeting settings"
       }
     },
     "/api/2.0/settings/greetingsettings/restore": {
@@ -2574,8 +3516,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Restore the greeting settings"
       }
     },
     "/api/2.0/settings/iprestrictions": {
@@ -2613,8 +3570,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the IP portal restrictions"
       },
       "put": {
         "tags": [
@@ -2670,8 +3642,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Save the IP restrictions"
       }
     },
     "/api/2.0/settings/iprestrictions/settings": {
@@ -2700,8 +3687,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the IP restriction settings"
       },
       "put": {
         "tags": [
@@ -2748,8 +3750,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Update the IP restriction settings"
       }
     },
     "/api/2.0/settings/ldap": {
@@ -2778,8 +3795,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the LDAP settings"
       },
       "post": {
         "tags": [
@@ -2826,8 +3858,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Save the LDAP settings"
       }
     },
     "/api/2.0/settings/ldap/cron": {
@@ -2856,8 +3903,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the LDAP cron expression"
       },
       "post": {
         "tags": [
@@ -2887,8 +3949,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Set the LDAP cron expression"
       }
     },
     "/api/2.0/settings/ldap/sync": {
@@ -2917,8 +3994,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Synchronize with LDAP server"
       }
     },
     "/api/2.0/settings/ldap/sync/test": {
@@ -2947,8 +4039,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Test the LDAP synchronization"
       }
     },
     "/api/2.0/settings/ldap/save/test": {
@@ -2977,8 +4084,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Test the LDAP saving process"
       }
     },
     "/api/2.0/settings/ldap/status": {
@@ -3007,8 +4129,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the LDAP synchronization process status"
       }
     },
     "/api/2.0/settings/ldap/default": {
@@ -3037,8 +4174,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the LDAP default settings"
       }
     },
     "/api/2.0/settings/license/refresh": {
@@ -3067,8 +4219,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Refresh the license"
       }
     },
     "/api/2.0/settings/license/accept": {
@@ -3080,8 +4247,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Activate a license"
       }
     },
     "/api/2.0/settings/license/trial": {
@@ -3110,8 +4292,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Activate a trial license"
       }
     },
     "/api/2.0/settings/license/required": {
@@ -3141,7 +4338,8 @@
               }
             }
           }
-        }
+        },
+        "x-shortName": "Request a license"
       }
     },
     "/api/2.0/settings/license": {
@@ -3177,8 +4375,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Upload a license"
       }
     },
     "/api/2.0/settings/messagesettings": {
@@ -3210,8 +4423,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Enable the administrator message settings"
       }
     },
     "/api/2.0/settings/cookiesettings": {
@@ -3240,8 +4468,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get cookies lifetime"
       },
       "put": {
         "tags": [
@@ -3271,8 +4514,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Update cookies lifetime"
       }
     },
     "/api/2.0/settings/sendadmmail": {
@@ -3305,7 +4563,8 @@
           "200": {
             "description": "Success"
           }
-        }
+        },
+        "x-shortName": "Send a message to the administrator"
       }
     },
     "/api/2.0/settings/sendjoininvite": {
@@ -3338,7 +4597,8 @@
           "200": {
             "description": "Success"
           }
-        }
+        },
+        "x-shortName": "Sends an invitation email"
       }
     },
     "/api/2.0/settings/notification/{type}": {
@@ -3378,8 +4638,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Check notification availability"
       }
     },
     "/api/2.0/settings/notification": {
@@ -3428,8 +4703,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Enable notifications"
       }
     },
     "/api/2.0/settings/notification/rooms": {
@@ -3458,8 +4748,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get room notification settings"
       },
       "post": {
         "tags": [
@@ -3506,8 +4811,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Set room notification status"
       }
     },
     "/api/2.0/settings/owner": {
@@ -3539,8 +4859,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Send the owner change instructions"
       },
       "put": {
         "tags": [
@@ -3570,8 +4905,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Update the portal owner"
       }
     },
     "/api/2.0/settings/carddavurl": {
@@ -3600,8 +4950,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get a link to the CardDav address book"
       }
     },
     "/api/2.0/settings/deletebook": {
@@ -3630,8 +4995,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Delete a CardDav address book"
       }
     },
     "/api/2.0/settings/security": {
@@ -3682,8 +5062,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the security settings"
       },
       "put": {
         "tags": [
@@ -3739,8 +5134,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Set the module security settings"
       }
     },
     "/api/2.0/settings/security/{id}": {
@@ -3781,8 +5191,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the module availability"
       }
     },
     "/api/2.0/settings/security/modules": {
@@ -3794,8 +5219,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the enabled modules"
       }
     },
     "/api/2.0/settings/security/password": {
@@ -3824,8 +5264,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the password settings"
       },
       "put": {
         "tags": [
@@ -3872,8 +5327,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Set the password settings"
       }
     },
     "/api/2.0/settings/security/access": {
@@ -3931,8 +5401,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Set the access settings to products"
       }
     },
     "/api/2.0/settings/security/administrator/{productid}": {
@@ -3982,8 +5467,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the product administrators"
       }
     },
     "/api/2.0/settings/security/administrator": {
@@ -4015,8 +5515,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Check a product administrator"
       },
       "put": {
         "tags": [
@@ -4046,8 +5561,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Set a product administrator"
       }
     },
     "/api/2.0/settings/security/loginSettings": {
@@ -4096,8 +5626,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Update login settings"
       },
       "get": {
         "tags": [
@@ -4124,8 +5669,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get login settings"
       }
     },
     "/api/2.0/settings": {
@@ -4165,7 +5725,8 @@
               }
             }
           }
-        }
+        },
+        "x-shortName": "Get the portal settings"
       }
     },
     "/api/2.0/settings/maildomainsettings": {
@@ -4197,8 +5758,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Save the mail domain settings"
       }
     },
     "/api/2.0/settings/quota": {
@@ -4227,8 +5803,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the space usage"
       }
     },
     "/api/2.0/settings/userquotasettings": {
@@ -4260,8 +5851,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Save the user quota settings"
       }
     },
     "/api/2.0/settings/cultures": {
@@ -4300,7 +5906,8 @@
               }
             }
           }
-        }
+        },
+        "x-shortName": "Get supporrted languages"
       }
     },
     "/api/2.0/settings/timezones": {
@@ -4338,8 +5945,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get time zones"
       }
     },
     "/api/2.0/settings/machine": {
@@ -4351,8 +5973,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get hostname"
       }
     },
     "/api/2.0/settings/dns": {
@@ -4384,8 +6021,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Save the DNS settings"
       }
     },
     "/api/2.0/settings/recalculatequota": {
@@ -4397,8 +6049,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Recalculate quota"
       }
     },
     "/api/2.0/settings/checkrecalculatequota": {
@@ -4427,8 +6094,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Check quota recalculation"
       }
     },
     "/api/2.0/settings/logo": {
@@ -4440,8 +6122,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get a portal logo"
       }
     },
     "/api/2.0/settings/wizard/complete": {
@@ -4490,8 +6187,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Complete the Wizard settings"
       }
     },
     "/api/2.0/settings/welcome/close": {
@@ -4503,8 +6215,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Close the welcome pop-up notification"
       }
     },
     "/api/2.0/settings/colortheme": {
@@ -4534,7 +6261,8 @@
               }
             }
           }
-        }
+        },
+        "x-shortName": "Get a color theme"
       },
       "put": {
         "tags": [
@@ -4581,8 +6309,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Save a color theme"
       },
       "delete": {
         "tags": [
@@ -4620,8 +6363,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Delete a color theme"
       }
     },
     "/api/2.0/settings/closeadminhelper": {
@@ -4633,8 +6391,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Close the admin helper notification"
       }
     },
     "/api/2.0/settings/timeandlanguage": {
@@ -4666,8 +6439,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Set time zone and language"
       }
     },
     "/api/2.0/settings/defaultpage": {
@@ -4699,8 +6487,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Set the default product page"
       }
     },
     "/api/2.0/settings/emailactivation": {
@@ -4749,8 +6552,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Update the email activation settings"
       }
     },
     "/api/2.0/settings/statistics/spaceusage/{id}": {
@@ -4800,8 +6618,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the space usage statistics"
       }
     },
     "/api/2.0/settings/statistics/visit": {
@@ -4857,8 +6690,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the visit statistics"
       }
     },
     "/api/2.0/settings/socket": {
@@ -4870,8 +6718,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the socket settings"
       }
     },
     "/api/2.0/settings/authservice": {
@@ -4909,8 +6772,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the authorization services"
       },
       "post": {
         "tags": [
@@ -4957,8 +6835,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Save the authorization keys"
       }
     },
     "/api/2.0/settings/payment": {
@@ -4970,8 +6863,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the payment settings"
       }
     },
     "/api/2.0/settings/telegramlink": {
@@ -4983,8 +6891,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the Telegram link"
       }
     },
     "/api/2.0/settings/telegramisconnected": {
@@ -4996,8 +6919,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Check the Telegram connection"
       }
     },
     "/api/2.0/settings/telegramdisconnect": {
@@ -5009,8 +6947,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Unlink Telegram"
       }
     },
     "/api/2.0/settings/ssov2": {
@@ -5040,7 +6993,8 @@
               }
             }
           }
-        }
+        },
+        "x-shortName": "Get the SSO settings"
       },
       "post": {
         "tags": [
@@ -5087,8 +7041,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Save the SSO settings"
       },
       "delete": {
         "tags": [
@@ -5115,8 +7084,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Reset the SSO settings"
       }
     },
     "/api/2.0/settings/ssov2/default": {
@@ -5145,8 +7129,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the default SSO settings"
       }
     },
     "/api/2.0/settings/ssov2/constants": {
@@ -5158,8 +7157,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the SSO settings constants"
       }
     },
     "/api/2.0/settings/storage": {
@@ -5197,8 +7211,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get storages"
       },
       "put": {
         "tags": [
@@ -5245,8 +7274,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Update a storage"
       },
       "delete": {
         "tags": [
@@ -5256,8 +7300,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Reset the storage settings"
       }
     },
     "/api/2.0/settings/storage/progress": {
@@ -5289,8 +7348,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the storage progress"
       }
     },
     "/api/2.0/settings/encryption/start": {
@@ -5339,8 +7413,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Start the storage encryption process"
       }
     },
     "/api/2.0/settings/encryption/settings": {
@@ -5369,8 +7458,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the storage encryption settings"
       }
     },
     "/api/2.0/settings/encryption/progress": {
@@ -5402,8 +7506,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the storage encryption progress"
       }
     },
     "/api/2.0/settings/storage/cdn": {
@@ -5441,8 +7560,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the CDN storages"
       },
       "put": {
         "tags": [
@@ -5489,8 +7623,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Update the CDN storage"
       },
       "delete": {
         "tags": [
@@ -5500,8 +7649,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Reset the CDN storage settings"
       }
     },
     "/api/2.0/settings/storage/backup": {
@@ -5539,8 +7703,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the backup storages"
       }
     },
     "/api/2.0/settings/storage/s3/regions": {
@@ -5552,8 +7731,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get Amazon regions"
       }
     },
     "/api/2.0/settings/tfaapp": {
@@ -5591,8 +7785,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the TFA settings"
       },
       "put": {
         "tags": [
@@ -5639,8 +7848,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Update the TFA settings"
       }
     },
     "/api/2.0/settings/tfaapp/validate": {
@@ -5689,8 +7913,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Validate the TFA code"
       }
     },
     "/api/2.0/settings/tfaapp/confirm": {
@@ -5702,8 +7941,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get confirmation email"
       }
     },
     "/api/2.0/settings/tfaappwithlink": {
@@ -5735,8 +7989,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get confirmation email for updating TFA settings"
       }
     },
     "/api/2.0/settings/tfaapp/setup": {
@@ -5765,8 +8034,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Generate setup code"
       }
     },
     "/api/2.0/settings/tfaappcodes": {
@@ -5798,8 +8082,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the TFA codes"
       }
     },
     "/api/2.0/settings/tfaappnewcodes": {
@@ -5831,8 +8130,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Update the TFA codes"
       }
     },
     "/api/2.0/settings/tfaappnewapp": {
@@ -5864,8 +8178,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Unlink the TFA application"
       }
     },
     "/api/2.0/settings/tips": {
@@ -5914,8 +8243,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Update the tip settings"
       }
     },
     "/api/2.0/settings/tips/change/subscription": {
@@ -5944,8 +8288,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Update the tip subscription"
       }
     },
     "/api/2.0/settings/tips/subscription": {
@@ -5974,8 +8333,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Check the tip subscription"
       }
     },
     "/api/2.0/settings/version/build": {
@@ -6005,7 +8379,8 @@
               }
             }
           }
-        }
+        },
+        "x-shortName": "Get the current build version"
       }
     },
     "/api/2.0/settings/version": {
@@ -6034,8 +8409,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the portal versions"
       },
       "put": {
         "tags": [
@@ -6082,8 +8472,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Change the portal version"
       }
     },
     "/api/2.0/settings/webhook": {
@@ -6121,8 +8526,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get webhooks"
       },
       "post": {
         "tags": [
@@ -6169,8 +8589,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Create a webhook"
       },
       "put": {
         "tags": [
@@ -6217,8 +8652,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Update a webhook"
       }
     },
     "/api/2.0/settings/webhook/{id}": {
@@ -6259,8 +8709,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Remove a webhook"
       },
       "put": {
         "tags": [
@@ -6299,8 +8764,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Disable a webhook"
       }
     },
     "/api/2.0/settings/webhooks/log": {
@@ -6401,8 +8881,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get webhook logs"
       }
     },
     "/api/2.0/settings/webhook/{id}/retry": {
@@ -6443,8 +8938,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Retry a webhook"
       }
     },
     "/api/2.0/settings/webhook/retry": {
@@ -6502,8 +9012,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Retry webhooks"
       }
     },
     "/api/2.0/settings/webhooks": {
@@ -6541,8 +9066,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get webhook settings"
       }
     },
     "/api/2.0/settings/webplugins": {
@@ -6579,8 +9119,22 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ]
       },
       "get": {
         "tags": [
@@ -6624,8 +9178,22 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ]
       }
     },
     "/api/2.0/settings/webplugins/{name}": {
@@ -6663,8 +9231,22 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -6702,8 +9284,22 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -6722,8 +9318,22 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ]
       }
     },
     "/api/2.0/settings/whitelabel/save": {
@@ -6772,8 +9382,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Save the white label settings"
       }
     },
     "/api/2.0/settings/whitelabel/savefromfiles": {
@@ -6802,8 +9427,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Save the white label settings from files"
       }
     },
     "/api/2.0/settings/whitelabel/logos": {
@@ -6852,7 +9492,8 @@
               }
             }
           }
-        }
+        },
+        "x-shortName": "Get the white label logos"
       }
     },
     "/api/2.0/settings/whitelabel/logos/isdefault": {
@@ -6890,8 +9531,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Check the default white label logos"
       }
     },
     "/api/2.0/settings/whitelabel/logotext": {
@@ -6903,8 +9559,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the white label logo text"
       }
     },
     "/api/2.0/settings/whitelabel/restore": {
@@ -6933,8 +9604,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Restore the white label options"
       }
     },
     "/api/2.0/settings/companywhitelabel": {
@@ -6972,8 +9658,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the licensor data"
       }
     },
     "/api/2.0/settings/rebranding/company": {
@@ -7022,8 +9723,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Save the company white label settings"
       },
       "get": {
         "tags": [
@@ -7050,8 +9766,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the company white label settings"
       },
       "delete": {
         "tags": [
@@ -7078,8 +9809,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Delete the company white label settings"
       }
     },
     "/api/2.0/settings/rebranding/additional": {
@@ -7128,8 +9874,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Save the additional white label settings"
       },
       "get": {
         "tags": [
@@ -7156,8 +9917,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the additional white label settings"
       },
       "delete": {
         "tags": [
@@ -7184,8 +9960,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Delete the additional white label settings"
       }
     },
     "/api/2.0/settings/rebranding/mail": {
@@ -7234,8 +10025,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Save the mail white label settings"
       },
       "put": {
         "tags": [
@@ -7282,8 +10088,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Update the mail white label settings"
       },
       "get": {
         "tags": [
@@ -7310,8 +10131,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the mail white label settings"
       },
       "delete": {
         "tags": [
@@ -7338,8 +10174,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Delete the mail white label settings"
       }
     },
     "/api/2.0/settings/enableWhitelabel": {
@@ -7368,8 +10219,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Check the white label availability"
       }
     },
     "/api/2.0/SmtpSettings/smtp": {
@@ -7398,8 +10264,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the SMTP settings"
       },
       "post": {
         "tags": [
@@ -7446,8 +10327,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Save the SMTP settings"
       },
       "delete": {
         "tags": [
@@ -7474,8 +10370,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Reset the SMTP settings"
       }
     },
     "/api/2.0/SmtpSettings/smtp/test": {
@@ -7503,8 +10414,22 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ]
       }
     },
     "/api/2.0/SmtpSettings/smtp/test/status": {
@@ -7532,8 +10457,22 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ]
       }
     },
     "/api/2.0/ThirdParty/{provider}": {
@@ -7557,8 +10496,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the code request"
       }
     },
     "/api/2.0/ThirdParty/{provider}/code": {
@@ -7604,14 +10558,29 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the confirmation code"
       }
     }
   },
   "components": {
     "schemas": {
-      "ASC.Api.Collections.ItemKeyValuePair`2[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[ASC.Web.Api.ApiModel.RequestsDto.LogoRequestsDto, ASC.Web.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]": {
+      "ASC.Api.Collections.ItemKeyValuePair<System.String, ASC.Web.Api.ApiModel.RequestsDto.LogoRequestsDto>": {
         "type": "object",
         "properties": {
           "key": {
@@ -7624,7 +10593,7 @@
         },
         "additionalProperties": false
       },
-      "ASC.Api.Collections.ItemKeyValuePair`2[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Boolean, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]": {
+      "ASC.Api.Collections.ItemKeyValuePair<System.String, System.Boolean>": {
         "type": "object",
         "properties": {
           "key": {
@@ -7637,7 +10606,7 @@
         },
         "additionalProperties": false
       },
-      "ASC.Api.Collections.ItemKeyValuePair`2[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]": {
+      "ASC.Api.Collections.ItemKeyValuePair<System.String, System.String>": {
         "type": "object",
         "properties": {
           "key": {
@@ -8559,7 +11528,7 @@
             "nullable": true
           },
           "switch": {
-            "$ref": "#/components/schemas/System.Func`2[[ASC.Core.Common.Configuration.DataStoreConsumer, ASC.Core.Common, Version=1.0.1.0, Culture=neutral, PublicKeyToken=null],[ASC.Core.Common.Configuration.DataStoreConsumer, ASC.Core.Common, Version=1.0.1.0, Culture=neutral, PublicKeyToken=null]]"
+            "$ref": "#/components/schemas/System.Func<ASC.Core.Common.Configuration.DataStoreConsumer, ASC.Core.Common.Configuration.DataStoreConsumer>"
           }
         },
         "additionalProperties": false
@@ -8580,7 +11549,7 @@
             "nullable": true
           },
           "switch": {
-            "$ref": "#/components/schemas/System.Func`2[[ASC.Core.Common.Configuration.DataStoreConsumer, ASC.Core.Common, Version=1.0.1.0, Culture=neutral, PublicKeyToken=null],[ASC.Core.Common.Configuration.DataStoreConsumer, ASC.Core.Common, Version=1.0.1.0, Culture=neutral, PublicKeyToken=null]]"
+            "$ref": "#/components/schemas/System.Func<ASC.Core.Common.Configuration.DataStoreConsumer, ASC.Core.Common.Configuration.DataStoreConsumer>"
           }
         },
         "additionalProperties": false
@@ -8881,7 +11850,7 @@
         },
         "additionalProperties": false
       },
-      "ASC.Security.Cryptography.EmailValidationKeyProvider+ValidationResult": {
+      "ASC.Security.Cryptography.EmailValidationKeyProvider_ValidationResult": {
         "enum": [
           0,
           1,
@@ -9336,7 +12305,7 @@
           "props": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ASC.Api.Collections.ItemKeyValuePair`2[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+              "$ref": "#/components/schemas/ASC.Api.Collections.ItemKeyValuePair<System.String, System.String>"
             },
             "description": "Storage properties",
             "nullable": true
@@ -9510,7 +12479,7 @@
           "items": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ASC.Api.Collections.ItemKeyValuePair`2[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Boolean, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+              "$ref": "#/components/schemas/ASC.Api.Collections.ItemKeyValuePair<System.String, System.Boolean>"
             },
             "description": "Products with security information",
             "nullable": true
@@ -9543,7 +12512,7 @@
           "logo": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ASC.Api.Collections.ItemKeyValuePair`2[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[ASC.Web.Api.ApiModel.RequestsDto.LogoRequestsDto, ASC.Web.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"
+              "$ref": "#/components/schemas/ASC.Api.Collections.ItemKeyValuePair<System.String, ASC.Web.Api.ApiModel.RequestsDto.LogoRequestsDto>"
             },
             "description": "Tenant IDs with their logos (light or dark)",
             "nullable": true
@@ -10848,7 +13817,7 @@
         "type": "object",
         "properties": {
           "result": {
-            "$ref": "#/components/schemas/ASC.Security.Cryptography.EmailValidationKeyProvider+ValidationResult"
+            "$ref": "#/components/schemas/ASC.Security.Cryptography.EmailValidationKeyProvider_ValidationResult"
           },
           "roomId": {
             "type": "string",
@@ -12387,7 +15356,7 @@
         },
         "additionalProperties": false
       },
-      "System.Func`2[[ASC.Core.Common.Configuration.DataStoreConsumer, ASC.Core.Common, Version=1.0.1.0, Culture=neutral, PublicKeyToken=null],[ASC.Core.Common.Configuration.DataStoreConsumer, ASC.Core.Common, Version=1.0.1.0, Culture=neutral, PublicKeyToken=null]]": {
+      "System.Func<ASC.Core.Common.Configuration.DataStoreConsumer, ASC.Core.Common.Configuration.DataStoreConsumer>": {
         "type": "object",
         "properties": {
           "target": {
@@ -14359,6 +17328,12 @@
           }
         },
         "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "asc_auth_key": {
+        "type": "apiKey",
+        "in": "cookie"
       }
     }
   }

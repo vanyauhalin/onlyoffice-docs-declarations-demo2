@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "ASC.Files",
-    "version": "v1"
+    "version": "v2"
   },
   "paths": {
     "/api/2.0/files/file/{fileId}/saveediting": {
@@ -73,22 +73,37 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Save file edits"
       }
     },
     "/api/2.0/files/file/{fileId}/startedit": {
@@ -132,8 +147,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Start file editing"
       }
     },
     "/api/2.0/files/file/{fileId}/trackeditfile": {
@@ -193,22 +223,37 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/System.Collections.Generic.KeyValuePair`2[[System.Boolean, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/System.Collections.Generic.KeyValuePair<System.Boolean, System.String>"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/System.Collections.Generic.KeyValuePair`2[[System.Boolean, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/System.Collections.Generic.KeyValuePair<System.Boolean, System.String>"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/System.Collections.Generic.KeyValuePair`2[[System.Boolean, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/System.Collections.Generic.KeyValuePair<System.Boolean, System.String>"
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Track file editing"
       }
     },
     "/api/2.0/files/file/{fileId}/openedit": {
@@ -260,22 +305,23 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.ConfigurationDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.ConfigurationDto<System.Int32>"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.ConfigurationDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.ConfigurationDto<System.Int32>"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.ConfigurationDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.ConfigurationDto<System.Int32>"
                 }
               }
             }
           }
-        }
+        },
+        "x-shortName": "Open a file"
       }
     },
     "/api/2.0/files/file/{fileId}/presigned": {
@@ -302,22 +348,37 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.Helpers.DocumentService+FileLink"
+                  "$ref": "#/components/schemas/ASC.Files.Core.Helpers.DocumentService_FileLink"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.Helpers.DocumentService+FileLink"
+                  "$ref": "#/components/schemas/ASC.Files.Core.Helpers.DocumentService_FileLink"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.Helpers.DocumentService+FileLink"
+                  "$ref": "#/components/schemas/ASC.Files.Core.Helpers.DocumentService_FileLink"
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get file download link asynchronously"
       }
     },
     "/api/2.0/files/file/{fileId}/sharedusers": {
@@ -367,8 +428,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get shared users"
       }
     },
     "/api/2.0/files/file/referencedata": {
@@ -382,17 +458,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.RequestDto.GetReferenceDataDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.RequestDto.GetReferenceDataDto<System.Int32>"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.RequestDto.GetReferenceDataDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.RequestDto.GetReferenceDataDto<System.Int32>"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.RequestDto.GetReferenceDataDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.RequestDto.GetReferenceDataDto<System.Int32>"
               }
             }
           }
@@ -403,22 +479,37 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Web.Files.Services.DocumentService.FileReference`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Web.Files.Services.DocumentService.FileReference<System.Int32>"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Web.Files.Services.DocumentService.FileReference`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Web.Files.Services.DocumentService.FileReference<System.Int32>"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Web.Files.Services.DocumentService.FileReference`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Web.Files.Services.DocumentService.FileReference<System.Int32>"
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get reference data"
       }
     },
     "/api/2.0/files/file/{fileId}/protectusers": {
@@ -468,8 +559,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get users with the access to the protected file"
       }
     },
     "/api/2.0/files/file/app-{fileId}/openedit": {
@@ -495,22 +601,23 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Web.Files.Services.DocumentService.Configuration`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Web.Files.Services.DocumentService.Configuration<System.String>"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Web.Files.Services.DocumentService.Configuration`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Web.Files.Services.DocumentService.Configuration<System.String>"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Web.Files.Services.DocumentService.Configuration`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Web.Files.Services.DocumentService.Configuration<System.String>"
                 }
               }
             }
           }
-        }
+        },
+        "x-shortName": "Open a third-party file"
       }
     },
     "/api/2.0/files/docservice": {
@@ -559,8 +666,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Check the document service URL"
       },
       "get": {
         "tags": [
@@ -598,7 +720,8 @@
               }
             }
           }
-        }
+        },
+        "x-shortName": "Get the document service URL"
       }
     },
     "/api/2.0/files/file/{fileId}/history": {
@@ -647,7 +770,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                    "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                   }
                 }
               },
@@ -655,7 +778,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                    "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                   }
                 }
               },
@@ -663,13 +786,28 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                    "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                   }
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Change version history"
       },
       "get": {
         "tags": [
@@ -696,7 +834,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                    "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                   }
                 }
               },
@@ -704,7 +842,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                    "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                   }
                 }
               },
@@ -712,13 +850,28 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                    "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                   }
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get file versions"
       }
     },
     "/api/2.0/files/file/{fileId}/checkconversion": {
@@ -776,8 +929,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get conversion status"
       },
       "put": {
         "tags": [
@@ -801,17 +969,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.RequestDto.CheckConversionRequestDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.RequestDto.CheckConversionRequestDto<System.Int32>"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.RequestDto.CheckConversionRequestDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.RequestDto.CheckConversionRequestDto<System.Int32>"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.RequestDto.CheckConversionRequestDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.RequestDto.CheckConversionRequestDto<System.Int32>"
               }
             }
           }
@@ -845,8 +1013,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Start file conversion"
       }
     },
     "/api/2.0/files/file/{fileId}/presigneduri": {
@@ -887,8 +1070,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get file download link"
       }
     },
     "/api/2.0/files/file/{fileId}/copyas": {
@@ -914,17 +1112,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.RequestDto.CopyAsRequestDto`1[[System.Text.Json.JsonElement, System.Text.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51]]"
+                "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.RequestDto.CopyAsRequestDto<System.Text.Json.JsonElement>"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.RequestDto.CopyAsRequestDto`1[[System.Text.Json.JsonElement, System.Text.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51]]"
+                "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.RequestDto.CopyAsRequestDto<System.Text.Json.JsonElement>"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.RequestDto.CopyAsRequestDto`1[[System.Text.Json.JsonElement, System.Text.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51]]"
+                "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.RequestDto.CopyAsRequestDto<System.Text.Json.JsonElement>"
               }
             }
           }
@@ -949,8 +1147,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Copy a file"
       }
     },
     "/api/2.0/files/{folderId}/file": {
@@ -977,17 +1190,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.RequestDto.CreateFileRequestDto`1[[System.Text.Json.JsonElement, System.Text.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51]]"
+                "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.RequestDto.CreateFileRequestDto<System.Text.Json.JsonElement>"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.RequestDto.CreateFileRequestDto`1[[System.Text.Json.JsonElement, System.Text.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51]]"
+                "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.RequestDto.CreateFileRequestDto<System.Text.Json.JsonElement>"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.RequestDto.CreateFileRequestDto`1[[System.Text.Json.JsonElement, System.Text.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51]]"
+                "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.RequestDto.CreateFileRequestDto<System.Text.Json.JsonElement>"
               }
             }
           }
@@ -998,22 +1211,37 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Create a file"
       }
     },
     "/api/2.0/files/{folderId}/html": {
@@ -1060,22 +1288,37 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Create an HTML file"
       }
     },
     "/api/2.0/files/{folderId}/text": {
@@ -1122,22 +1365,37 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Create a txt file"
       }
     },
     "/api/2.0/files/file/{fileId}": {
@@ -1207,8 +1465,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Delete a file"
       },
       "get": {
         "tags": [
@@ -1243,22 +1516,23 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                 }
               }
             }
           }
-        }
+        },
+        "x-shortName": "Get file information"
       },
       "put": {
         "tags": [
@@ -1303,22 +1577,37 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Update a file"
       }
     },
     "/api/2.0/files/file/{fileId}/edit/diff": {
@@ -1378,7 +1667,8 @@
               }
             }
           }
-        }
+        },
+        "x-shortName": "Get changes URL"
       }
     },
     "/api/2.0/files/file/{fileId}/edit/history": {
@@ -1437,7 +1727,8 @@
               }
             }
           }
-        }
+        },
+        "x-shortName": "Get version history"
       }
     },
     "/api/2.0/files/file/{fileId}/lock": {
@@ -1484,22 +1775,37 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Lock a file"
       }
     },
     "/api/2.0/files/file/{fileId}/restoreversion": {
@@ -1576,7 +1882,8 @@
               }
             }
           }
-        }
+        },
+        "x-shortName": "Restore a file version"
       }
     },
     "/api/2.0/files/file/{fileId}/comment": {
@@ -1620,8 +1927,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Update a comment"
       }
     },
     "/api/2.0/files/{fileId}/update": {
@@ -1686,22 +2008,37 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Update file contents"
       }
     },
     "/api/2.0/files/{fileId}/properties": {
@@ -1742,8 +2079,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get file properties"
       },
       "put": {
         "tags": [
@@ -1802,8 +2154,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Save file properties to a file"
       }
     },
     "/api/2.0/files/file/{id}/link": {
@@ -1844,8 +2211,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Returns primary external link"
       }
     },
     "/api/2.0/files/file/app-{fileId}": {
@@ -1885,8 +2267,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get third-party file information"
       }
     },
     "/api/2.0/files/@my/file": {
@@ -1901,17 +2298,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.RequestDto.CreateFileRequestDto`1[[System.Text.Json.JsonElement, System.Text.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51]]"
+                "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.RequestDto.CreateFileRequestDto<System.Text.Json.JsonElement>"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.RequestDto.CreateFileRequestDto`1[[System.Text.Json.JsonElement, System.Text.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51]]"
+                "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.RequestDto.CreateFileRequestDto<System.Text.Json.JsonElement>"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.RequestDto.CreateFileRequestDto`1[[System.Text.Json.JsonElement, System.Text.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51]]"
+                "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.RequestDto.CreateFileRequestDto<System.Text.Json.JsonElement>"
               }
             }
           }
@@ -1922,22 +2319,37 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Create a file in the \"My documents\" section"
       }
     },
     "/api/2.0/files/@common/html": {
@@ -1972,22 +2384,37 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Create an HTML file in the \"Common\" section"
       }
     },
     "/api/2.0/files/@my/html": {
@@ -2022,22 +2449,37 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Create an HTML file in the \"My documents\" section"
       }
     },
     "/api/2.0/files/@common/text": {
@@ -2072,22 +2514,37 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Create a text file in the \"Common\" section"
       }
     },
     "/api/2.0/files/@my/text": {
@@ -2122,22 +2579,37 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Create a text file in the \"My documents\" section"
       }
     },
     "/api/2.0/files/thumbnails": {
@@ -2190,7 +2662,8 @@
               }
             }
           }
-        }
+        },
+        "x-shortName": "Create thumbnails"
       }
     },
     "/api/2.0/files/batch/properties": {
@@ -2248,8 +2721,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Save file properties to files"
       }
     },
     "/api/2.0/files/folder/{folderId}": {
@@ -2296,22 +2784,37 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.Int32>"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.Int32>"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.Int32>"
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Create a folder"
       },
       "delete": {
         "tags": [
@@ -2379,8 +2882,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Delete a folder"
       },
       "get": {
         "tags": [
@@ -2405,22 +2923,23 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.Int32>"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.Int32>"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.Int32>"
                 }
               }
             }
           }
-        }
+        },
+        "x-shortName": "Get folder information"
       },
       "put": {
         "tags": [
@@ -2465,22 +2984,37 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.Int32>"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.Int32>"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.Int32>"
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Rename a folder"
       }
     },
     "/api/2.0/files/{folderId}": {
@@ -2573,22 +3107,23 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto<System.Int32>"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto<System.Int32>"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto<System.Int32>"
                 }
               }
             }
           }
-        }
+        },
+        "x-shortName": "Get a folder by ID"
       }
     },
     "/api/2.0/files/folder/{folderId}/path": {
@@ -2638,8 +3173,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the folder path"
       }
     },
     "/api/2.0/files/{folderId}/subfolders": {
@@ -2689,8 +3239,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get subfolders"
       }
     },
     "/api/2.0/files/{folderId}/news": {
@@ -2740,8 +3305,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get new folder items"
       }
     },
     "/api/2.0/files/@common": {
@@ -2791,22 +3371,37 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto<System.Int32>"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto<System.Int32>"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto<System.Int32>"
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the \"Common\" section"
       }
     },
     "/api/2.0/files/@favorites": {
@@ -2856,22 +3451,37 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto<System.Int32>"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto<System.Int32>"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto<System.Int32>"
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the \"Favorites\" section"
       }
     },
     "/api/2.0/files/@my": {
@@ -2929,22 +3539,37 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto<System.Int32>"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto<System.Int32>"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto<System.Int32>"
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the \"My documents\" section"
       }
     },
     "/api/2.0/files/@privacy": {
@@ -2994,22 +3619,37 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto<System.Int32>"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto<System.Int32>"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto<System.Int32>"
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the \"Private Room\" section"
       }
     },
     "/api/2.0/files/@projects": {
@@ -3059,22 +3699,37 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto<System.String>"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto<System.String>"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto<System.String>"
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the \"In projects\" section"
       }
     },
     "/api/2.0/files/@recent": {
@@ -3124,22 +3779,37 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto<System.Int32>"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto<System.Int32>"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto<System.Int32>"
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the \"Recent\" section"
       }
     },
     "/api/2.0/files/@root": {
@@ -3207,7 +3877,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                    "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto<System.Int32>"
                   }
                 }
               },
@@ -3215,7 +3885,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                    "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto<System.Int32>"
                   }
                 }
               },
@@ -3223,13 +3893,28 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                    "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto<System.Int32>"
                   }
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get filtered sections"
       }
     },
     "/api/2.0/files/@share": {
@@ -3279,22 +3964,37 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto<System.Int32>"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto<System.Int32>"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto<System.Int32>"
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the \"Shared with me\" section"
       }
     },
     "/api/2.0/files/@templates": {
@@ -3344,22 +4044,37 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto<System.Int32>"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto<System.Int32>"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto<System.Int32>"
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the \"Templates\" section"
       }
     },
     "/api/2.0/files/@trash": {
@@ -3417,22 +4132,37 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto<System.Int32>"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto<System.Int32>"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto<System.Int32>"
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the \"Trash\" section"
       }
     },
     "/api/2.0/files/masterform/{fileId}/checkfillformdraft": {
@@ -3476,8 +4206,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Check the form draft"
       }
     },
     "/api/2.0/files/fileops/bulkdownload": {
@@ -3536,7 +4281,8 @@
               }
             }
           }
-        }
+        },
+        "x-shortName": "Bulk download"
       }
     },
     "/api/2.0/files/fileops/copy": {
@@ -3594,8 +4340,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Copy to a folder"
       }
     },
     "/api/2.0/files/fileops/delete": {
@@ -3653,8 +4414,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Delete files and folders"
       }
     },
     "/api/2.0/files/fileops/emptytrash": {
@@ -3692,8 +4468,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Empty the \"Trash\" folder"
       }
     },
     "/api/2.0/files/fileops": {
@@ -3732,7 +4523,8 @@
               }
             }
           }
-        }
+        },
+        "x-shortName": "Get active operations"
       }
     },
     "/api/2.0/files/fileops/markasread": {
@@ -3790,8 +4582,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Mark as read"
       }
     },
     "/api/2.0/files/fileops/move": {
@@ -3849,8 +4656,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Move to a folder"
       },
       "get": {
         "tags": [
@@ -3896,8 +4718,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Check files and folders for conflicts"
       }
     },
     "/api/2.0/files/fileops/terminate/{id}": {
@@ -3947,7 +4784,8 @@
               }
             }
           }
-        }
+        },
+        "x-shortName": "Finish active operations"
       }
     },
     "/api/2.0/files/{fileId}/sharedlinkAsync": {
@@ -3991,8 +4829,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the shared link"
       }
     },
     "/api/2.0/files/file/{fileId}/share": {
@@ -4042,8 +4895,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the shared file information"
       },
       "put": {
         "tags": [
@@ -4111,8 +4979,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Share a file"
       }
     },
     "/api/2.0/files/folder/{folderId}/share": {
@@ -4162,8 +5045,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the shared folder information"
       },
       "put": {
         "tags": [
@@ -4231,8 +5129,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Share a folder"
       }
     },
     "/api/2.0/files/{fileId}/setacelink": {
@@ -4293,8 +5206,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Set the link access status"
       }
     },
     "/api/2.0/files/file/{fileId}/publickeys": {
@@ -4344,8 +5272,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get file encryption keys"
       }
     },
     "/api/2.0/files/file/{fileId}/sendeditornotify": {
@@ -4415,8 +5358,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Send the mention message"
       }
     },
     "/api/2.0/files/owner": {
@@ -4474,8 +5432,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Change the file owner"
       }
     },
     "/api/2.0/files/share": {
@@ -4533,8 +5506,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the sharing rights"
       },
       "delete": {
         "tags": [
@@ -4581,8 +5569,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Remove the sharing rights"
       },
       "put": {
         "tags": [
@@ -4638,8 +5641,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Set the sharing rights"
       }
     },
     "/api/2.0/files/share/{key}": {
@@ -4680,7 +5698,8 @@
               }
             }
           }
-        }
+        },
+        "x-shortName": "Get the external data"
       }
     },
     "/api/2.0/files/share/{key}/password": {
@@ -4741,7 +5760,8 @@
               }
             }
           }
-        }
+        },
+        "x-shortName": "Apply external data password"
       }
     },
     "/api/2.0/files/thirdparty": {
@@ -4790,8 +5810,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Change the third-party settings access"
       },
       "get": {
         "tags": [
@@ -4827,8 +5862,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get third-party accounts"
       },
       "post": {
         "tags": [
@@ -4862,22 +5912,37 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.String>"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.String>"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.String>"
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Save a third-party account"
       }
     },
     "/api/2.0/files/changedeleteconfrim": {
@@ -4926,8 +5991,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Confirm the file deletion"
       }
     },
     "/api/2.0/files/settings/downloadtargz": {
@@ -4976,8 +6056,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Change the archive format (using body parameters)"
       }
     },
     "/api/2.0/files/settings/favorites": {
@@ -5026,8 +6121,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Display the \"Favorites\" folder"
       }
     },
     "/api/2.0/files/displayRecent": {
@@ -5076,8 +6186,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Display the \"Recent\" folder"
       }
     },
     "/api/2.0/files/settings/templates": {
@@ -5126,8 +6251,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Display the \"Templates\" folder"
       }
     },
     "/api/2.0/files/settings/external": {
@@ -5176,8 +6316,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Change the external sharing ability"
       }
     },
     "/api/2.0/files/settings/externalsocialmedia": {
@@ -5226,8 +6381,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Change the external sharing ability on social networks"
       }
     },
     "/api/2.0/files/forcesave": {
@@ -5256,8 +6426,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Change the forcasaving ability"
       }
     },
     "/api/2.0/files/settings": {
@@ -5287,7 +6472,8 @@
               }
             }
           }
-        }
+        },
+        "x-shortName": "Get file settings"
       }
     },
     "/api/2.0/files/info": {
@@ -5316,8 +6502,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the Documents information"
       }
     },
     "/api/2.0/files/hideconfirmconvert": {
@@ -5366,8 +6567,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Hide the confirmation dialog when converting"
       }
     },
     "/api/2.0/files/@privacy/available": {
@@ -5396,8 +6612,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Check the Private Room availability"
       }
     },
     "/api/2.0/files/storeforcesave": {
@@ -5426,8 +6657,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Change the ability to store the forcesaved files"
       }
     },
     "/api/2.0/files/storeoriginal": {
@@ -5476,8 +6722,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Change the ability to upload original formats"
       }
     },
     "/api/2.0/files/keepnewfilename": {
@@ -5526,8 +6787,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Ask a new file name"
       }
     },
     "/api/2.0/files/updateifexist": {
@@ -5576,8 +6852,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Update a file version if it exists"
       }
     },
     "/api/2.0/files/settings/autocleanup": {
@@ -5606,8 +6897,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the trash bin auto-clearing setting"
       },
       "put": {
         "tags": [
@@ -5654,8 +6960,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Update the trash bin auto-clearing setting"
       }
     },
     "/api/2.0/files/settings/dafaultaccessrights": {
@@ -5722,8 +7043,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Change the default access rights"
       }
     },
     "/api/2.0/files/file/{fileId}/recent": {
@@ -5750,22 +7086,37 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Add a file to the \"Recent\" section"
       }
     },
     "/api/2.0/files/favorites/{fileId}": {
@@ -5814,8 +7165,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Change the file favorite status"
       }
     },
     "/api/2.0/files/favorites": {
@@ -5864,8 +7230,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Add favorite files and folders"
       },
       "delete": {
         "tags": [
@@ -5902,8 +7283,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Delete favorite files and folders (using body parameters)"
       }
     },
     "/api/2.0/files/templates": {
@@ -5952,8 +7348,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Add template files"
       },
       "delete": {
         "tags": [
@@ -6012,8 +7423,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Delete template files"
       }
     },
     "/api/2.0/files/thirdparty/capabilities": {
@@ -6061,8 +7487,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get providers"
       }
     },
     "/api/2.0/files/wordpress": {
@@ -6111,8 +7552,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Create a WordPress post"
       }
     },
     "/api/2.0/files/thirdparty/{providerId}": {
@@ -6136,8 +7592,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Remove a third-party account"
       }
     },
     "/api/2.0/files/wordpress-delete": {
@@ -6149,8 +7620,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Delete the WordPress information"
       }
     },
     "/api/2.0/files/thirdparty/common": {
@@ -6167,7 +7653,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                    "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.String>"
                   }
                 }
               },
@@ -6175,7 +7661,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                    "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.String>"
                   }
                 }
               },
@@ -6183,13 +7669,28 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                    "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.String>"
                   }
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get common third-party services"
       }
     },
     "/api/2.0/files/thirdparty/backup": {
@@ -6204,22 +7705,37 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.String>"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.String>"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.String>"
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get a third-party account backup"
       },
       "post": {
         "tags": [
@@ -6253,22 +7769,37 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.String>"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.String>"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.String>"
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Save a third-party account backup"
       }
     },
     "/api/2.0/files/wordpress-info": {
@@ -6280,8 +7811,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get the WordPress information"
       }
     },
     "/api/2.0/files/wordpress-save": {
@@ -6313,8 +7859,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Save the user WordPress information"
       }
     },
     "/api/2.0/files/{folderId}/upload/create_session": {
@@ -6359,8 +7920,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Chunked upload"
       }
     },
     "/api/2.0/files/file/{fileId}/edit_session": {
@@ -6393,8 +7969,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Create the editing session"
       }
     },
     "/api/2.0/files/{folderId}/insert": {
@@ -6511,22 +8102,37 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Insert a file"
       }
     },
     "/api/2.0/files/{folderId}/upload": {
@@ -6559,8 +8165,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Upload a file"
       }
     },
     "/api/2.0/files/@common/insert": {
@@ -6665,22 +8286,37 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Insert a file to the \"Common\" section"
       }
     },
     "/api/2.0/files/@my/insert": {
@@ -6785,22 +8421,37 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Insert a file to the \"My documents\" section"
       }
     },
     "/api/2.0/files/@common/upload": {
@@ -6823,8 +8474,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Upload a file to the \"Common\" section"
       }
     },
     "/api/2.0/files/@my/upload": {
@@ -6847,8 +8513,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Upload a file to the \"My documents\" section"
       }
     },
     "/api/2.0/files/rooms": {
@@ -6883,22 +8564,37 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.Int32>"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.Int32>"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.Int32>"
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Create a room"
       },
       "get": {
         "tags": [
@@ -6993,22 +8689,37 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto<System.Int32>"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto<System.Int32>"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto<System.Int32>"
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get rooms"
       }
     },
     "/api/2.0/files/rooms/{id}": {
@@ -7035,22 +8746,23 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.Int32>"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.Int32>"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.Int32>"
                 }
               }
             }
           }
-        }
+        },
+        "x-shortName": "Get room information"
       },
       "put": {
         "tags": [
@@ -7095,22 +8807,37 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.Int32>"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.Int32>"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.Int32>"
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Rename a room"
       },
       "delete": {
         "tags": [
@@ -7169,8 +8896,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Remove a room"
       }
     },
     "/api/2.0/files/rooms/{id}/archive": {
@@ -7231,8 +8973,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Archive a room"
       }
     },
     "/api/2.0/files/rooms/{id}/unarchive": {
@@ -7293,8 +9050,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Unarchive a room"
       }
     },
     "/api/2.0/files/rooms/{id}/share": {
@@ -7355,8 +9127,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Set room access rights"
       },
       "get": {
         "tags": [
@@ -7412,8 +9199,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get room access rights"
       }
     },
     "/api/2.0/files/rooms/{id}/links": {
@@ -7474,8 +9276,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Set an external or invitation link"
       },
       "get": {
         "tags": [
@@ -7531,8 +9348,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get room links"
       }
     },
     "/api/2.0/files/rooms/{id}/link": {
@@ -7573,8 +9405,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get primary external link"
       }
     },
     "/api/2.0/files/rooms/{id}/tags": {
@@ -7621,22 +9468,37 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.Int32>"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.Int32>"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.Int32>"
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Add room tags"
       },
       "delete": {
         "tags": [
@@ -7681,22 +9543,37 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.Int32>"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.Int32>"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.Int32>"
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Remove room tags"
       }
     },
     "/api/2.0/files/rooms/{id}/logo": {
@@ -7743,22 +9620,37 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.Int32>"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.Int32>"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.Int32>"
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Create a room logo"
       },
       "delete": {
         "tags": [
@@ -7783,22 +9675,37 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.Int32>"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.Int32>"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.Int32>"
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Remove a room logo"
       }
     },
     "/api/2.0/files/rooms/{id}/pin": {
@@ -7825,22 +9732,37 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.Int32>"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.Int32>"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.Int32>"
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Pin a room"
       }
     },
     "/api/2.0/files/rooms/{id}/unpin": {
@@ -7867,22 +9789,37 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.Int32>"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.Int32>"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.Int32>"
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Unpin a room"
       }
     },
     "/api/2.0/files/rooms/{id}/resend": {
@@ -7926,8 +9863,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Resend room invitations"
       }
     },
     "/api/2.0/files/rooms/thirdparty/{id}": {
@@ -7973,22 +9925,37 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.String>"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.String>"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                  "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.String>"
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Create a third-party room"
       }
     },
     "/api/2.0/files/tags": {
@@ -8020,8 +9987,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Create a tag"
       },
       "get": {
         "tags": [
@@ -8051,8 +10033,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get tags"
       },
       "delete": {
         "tags": [
@@ -8082,8 +10079,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Delete tags"
       }
     },
     "/api/2.0/files/logos": {
@@ -8101,7 +10113,7 @@
                   "formCollection": {
                     "type": "array",
                     "items": {
-                      "$ref": "#/components/schemas/System.Collections.Generic.KeyValuePair`2[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[Microsoft.Extensions.Primitives.StringValues, Microsoft.Extensions.Primitives, Version=7.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]"
+                      "$ref": "#/components/schemas/System.Collections.Generic.KeyValuePair<System.String, Microsoft.Extensions.Primitives.StringValues>"
                     }
                   }
                 }
@@ -8134,8 +10146,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Upload an image for room logo"
       }
     },
     "/api/2.0/files/rooms/accept": {
@@ -8167,8 +10194,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Accept an invitation"
       }
     },
     "/api/2.0/privacyroom/access/{fileId}": {
@@ -8218,8 +10260,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get file key pairs"
       }
     },
     "/api/2.0/privacyroom/keys": {
@@ -8248,8 +10305,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get encryption keys"
       },
       "put": {
         "tags": [
@@ -8279,8 +10351,23 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Set encryption keys"
       }
     },
     "/api/2.0/privacyroom": {
@@ -8309,8 +10396,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Check the Private Room settings"
       },
       "put": {
         "tags": [
@@ -8357,14 +10459,29 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Enable the Private Room settings"
       }
     }
   },
   "components": {
     "schemas": {
-      "ASC.Api.Collections.ItemKeyValuePair`2[[System.Text.Json.JsonElement, System.Text.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51],[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]": {
+      "ASC.Api.Collections.ItemKeyValuePair<System.Text.Json.JsonElement, System.String>": {
         "type": "object",
         "properties": {
           "key": { },
@@ -8736,7 +10853,7 @@
         },
         "additionalProperties": false
       },
-      "ASC.Files.Core.ApiModels.RequestDto.CheckConversionRequestDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]": {
+      "ASC.Files.Core.ApiModels.RequestDto.CheckConversionRequestDto<System.Int32>": {
         "type": "object",
         "properties": {
           "fileId": {
@@ -8804,7 +10921,7 @@
         },
         "additionalProperties": false
       },
-      "ASC.Files.Core.ApiModels.RequestDto.CopyAsRequestDto`1[[System.Text.Json.JsonElement, System.Text.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51]]": {
+      "ASC.Files.Core.ApiModels.RequestDto.CopyAsRequestDto<System.Text.Json.JsonElement>": {
         "type": "object",
         "properties": {
           "destTitle": {
@@ -8822,7 +10939,7 @@
         },
         "additionalProperties": false
       },
-      "ASC.Files.Core.ApiModels.RequestDto.CreateFileRequestDto`1[[System.Text.Json.JsonElement, System.Text.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51]]": {
+      "ASC.Files.Core.ApiModels.RequestDto.CreateFileRequestDto<System.Text.Json.JsonElement>": {
         "type": "object",
         "properties": {
           "title": {
@@ -9002,7 +11119,7 @@
           "fileConvertIds": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ASC.Api.Collections.ItemKeyValuePair`2[[System.Text.Json.JsonElement, System.Text.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51],[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+              "$ref": "#/components/schemas/ASC.Api.Collections.ItemKeyValuePair<System.Text.Json.JsonElement, System.String>"
             },
             "nullable": true
           }
@@ -9062,7 +11179,7 @@
         },
         "additionalProperties": false
       },
-      "ASC.Files.Core.ApiModels.RequestDto.GetReferenceDataDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]": {
+      "ASC.Files.Core.ApiModels.RequestDto.GetReferenceDataDto<System.Int32>": {
         "type": "object",
         "properties": {
           "fileKey": {
@@ -9495,18 +11612,18 @@
         },
         "additionalProperties": false
       },
-      "ASC.Files.Core.ApiModels.ResponseDto.ConfigurationDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]": {
+      "ASC.Files.Core.ApiModels.ResponseDto.ConfigurationDto<System.Int32>": {
         "type": "object",
         "properties": {
           "document": {
-            "$ref": "#/components/schemas/ASC.Web.Files.Services.DocumentService.DocumentConfig`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+            "$ref": "#/components/schemas/ASC.Web.Files.Services.DocumentService.DocumentConfig<System.Int32>"
           },
           "documentType": {
             "type": "string",
             "nullable": true
           },
           "editorConfig": {
-            "$ref": "#/components/schemas/ASC.Web.Files.Services.DocumentService.EditorConfiguration`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+            "$ref": "#/components/schemas/ASC.Web.Files.Services.DocumentService.EditorConfiguration<System.Int32>"
           },
           "editorType": {
             "$ref": "#/components/schemas/ASC.Web.Files.Services.DocumentService.EditorType"
@@ -9524,7 +11641,7 @@
             "nullable": true
           },
           "file": {
-            "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+            "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>"
           },
           "errorMessage": {
             "type": "string",
@@ -9683,7 +11800,7 @@
         },
         "additionalProperties": false
       },
-      "ASC.Files.Core.ApiModels.ResponseDto.FileDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]": {
+      "ASC.Files.Core.ApiModels.ResponseDto.FileDto<System.Int32>": {
         "type": "object",
         "properties": {
           "title": {
@@ -9956,7 +12073,7 @@
         },
         "additionalProperties": false
       },
-      "ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]": {
+      "ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto<System.Int32>": {
         "type": "object",
         "properties": {
           "files": {
@@ -9974,7 +12091,7 @@
             "nullable": true
           },
           "current": {
-            "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+            "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.Int32>"
           },
           "pathParts": {
             "nullable": true
@@ -9998,7 +12115,7 @@
         },
         "additionalProperties": false
       },
-      "ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]": {
+      "ASC.Files.Core.ApiModels.ResponseDto.FolderContentDto<System.String>": {
         "type": "object",
         "properties": {
           "files": {
@@ -10016,7 +12133,7 @@
             "nullable": true
           },
           "current": {
-            "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+            "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.String>"
           },
           "pathParts": {
             "nullable": true
@@ -10040,7 +12157,7 @@
         },
         "additionalProperties": false
       },
-      "ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]": {
+      "ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.Int32>": {
         "type": "object",
         "properties": {
           "title": {
@@ -10171,7 +12288,7 @@
         },
         "additionalProperties": false
       },
-      "ASC.Files.Core.ApiModels.ResponseDto.FolderDto`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]": {
+      "ASC.Files.Core.ApiModels.ResponseDto.FolderDto<System.String>": {
         "type": "object",
         "properties": {
           "title": {
@@ -10572,7 +12689,7 @@
         },
         "additionalProperties": false
       },
-      "ASC.Files.Core.Helpers.DocumentService+FileLink": {
+      "ASC.Files.Core.Helpers.DocumentService_FileLink": {
         "type": "object",
         "properties": {
           "filetype": {
@@ -11109,12 +13226,12 @@
         "type": "object",
         "properties": {
           "action": {
-            "$ref": "#/components/schemas/ASC.Web.Files.Services.DocumentService.ActionLinkConfig+ActionConfig"
+            "$ref": "#/components/schemas/ASC.Web.Files.Services.DocumentService.ActionLinkConfig_ActionConfig"
           }
         },
         "additionalProperties": false
       },
-      "ASC.Web.Files.Services.DocumentService.ActionLinkConfig+ActionConfig": {
+      "ASC.Web.Files.Services.DocumentService.ActionLinkConfig_ActionConfig": {
         "type": "object",
         "properties": {
           "data": {
@@ -11145,11 +13262,11 @@
         },
         "additionalProperties": false
       },
-      "ASC.Web.Files.Services.DocumentService.Configuration`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]": {
+      "ASC.Web.Files.Services.DocumentService.Configuration<System.String>": {
         "type": "object",
         "properties": {
           "document": {
-            "$ref": "#/components/schemas/ASC.Web.Files.Services.DocumentService.DocumentConfig`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+            "$ref": "#/components/schemas/ASC.Web.Files.Services.DocumentService.DocumentConfig<System.String>"
           },
           "documentType": {
             "type": "string",
@@ -11157,7 +13274,7 @@
             "readOnly": true
           },
           "editorConfig": {
-            "$ref": "#/components/schemas/ASC.Web.Files.Services.DocumentService.EditorConfiguration`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+            "$ref": "#/components/schemas/ASC.Web.Files.Services.DocumentService.EditorConfiguration<System.String>"
           },
           "editorType": {
             "$ref": "#/components/schemas/ASC.Web.Files.Services.DocumentService.EditorType"
@@ -11182,7 +13299,7 @@
         },
         "additionalProperties": false
       },
-      "ASC.Web.Files.Services.DocumentService.CustomerConfig`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]": {
+      "ASC.Web.Files.Services.DocumentService.CustomerConfig<System.Int32>": {
         "type": "object",
         "properties": {
           "address": {
@@ -11213,7 +13330,7 @@
         },
         "additionalProperties": false
       },
-      "ASC.Web.Files.Services.DocumentService.CustomerConfig`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]": {
+      "ASC.Web.Files.Services.DocumentService.CustomerConfig<System.String>": {
         "type": "object",
         "properties": {
           "address": {
@@ -11244,7 +13361,7 @@
         },
         "additionalProperties": false
       },
-      "ASC.Web.Files.Services.DocumentService.CustomizationConfig`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]": {
+      "ASC.Web.Files.Services.DocumentService.CustomizationConfig<System.Int32>": {
         "type": "object",
         "properties": {
           "about": {
@@ -11252,7 +13369,7 @@
             "readOnly": true
           },
           "customer": {
-            "$ref": "#/components/schemas/ASC.Web.Files.Services.DocumentService.CustomerConfig`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+            "$ref": "#/components/schemas/ASC.Web.Files.Services.DocumentService.CustomerConfig<System.Int32>"
           },
           "feedback": {
             "$ref": "#/components/schemas/ASC.Web.Files.Services.DocumentService.FeedbackConfig"
@@ -11266,7 +13383,7 @@
             "$ref": "#/components/schemas/ASC.Web.Files.Services.DocumentService.GobackConfig"
           },
           "logo": {
-            "$ref": "#/components/schemas/ASC.Web.Files.Services.DocumentService.LogoConfig`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+            "$ref": "#/components/schemas/ASC.Web.Files.Services.DocumentService.LogoConfig<System.Int32>"
           },
           "mentionShare": {
             "type": "boolean",
@@ -11284,7 +13401,7 @@
         },
         "additionalProperties": false
       },
-      "ASC.Web.Files.Services.DocumentService.CustomizationConfig`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]": {
+      "ASC.Web.Files.Services.DocumentService.CustomizationConfig<System.String>": {
         "type": "object",
         "properties": {
           "about": {
@@ -11292,7 +13409,7 @@
             "readOnly": true
           },
           "customer": {
-            "$ref": "#/components/schemas/ASC.Web.Files.Services.DocumentService.CustomerConfig`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+            "$ref": "#/components/schemas/ASC.Web.Files.Services.DocumentService.CustomerConfig<System.String>"
           },
           "feedback": {
             "$ref": "#/components/schemas/ASC.Web.Files.Services.DocumentService.FeedbackConfig"
@@ -11306,7 +13423,7 @@
             "$ref": "#/components/schemas/ASC.Web.Files.Services.DocumentService.GobackConfig"
           },
           "logo": {
-            "$ref": "#/components/schemas/ASC.Web.Files.Services.DocumentService.LogoConfig`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+            "$ref": "#/components/schemas/ASC.Web.Files.Services.DocumentService.LogoConfig<System.String>"
           },
           "mentionShare": {
             "type": "boolean",
@@ -11324,7 +13441,7 @@
         },
         "additionalProperties": false
       },
-      "ASC.Web.Files.Services.DocumentService.DocumentConfig`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]": {
+      "ASC.Web.Files.Services.DocumentService.DocumentConfig<System.Int32>": {
         "type": "object",
         "properties": {
           "fileType": {
@@ -11333,7 +13450,7 @@
             "readOnly": true
           },
           "info": {
-            "$ref": "#/components/schemas/ASC.Web.Files.Services.DocumentService.InfoConfig`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+            "$ref": "#/components/schemas/ASC.Web.Files.Services.DocumentService.InfoConfig<System.Int32>"
           },
           "isLinkedForMe": {
             "type": "boolean"
@@ -11354,7 +13471,7 @@
             "nullable": true
           },
           "referenceData": {
-            "$ref": "#/components/schemas/ASC.Web.Files.Services.DocumentService.FileReferenceData`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+            "$ref": "#/components/schemas/ASC.Web.Files.Services.DocumentService.FileReferenceData<System.Int32>"
           },
           "title": {
             "type": "string",
@@ -11367,7 +13484,7 @@
         },
         "additionalProperties": false
       },
-      "ASC.Web.Files.Services.DocumentService.DocumentConfig`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]": {
+      "ASC.Web.Files.Services.DocumentService.DocumentConfig<System.String>": {
         "type": "object",
         "properties": {
           "fileType": {
@@ -11376,7 +13493,7 @@
             "readOnly": true
           },
           "info": {
-            "$ref": "#/components/schemas/ASC.Web.Files.Services.DocumentService.InfoConfig`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+            "$ref": "#/components/schemas/ASC.Web.Files.Services.DocumentService.InfoConfig<System.String>"
           },
           "isLinkedForMe": {
             "type": "boolean"
@@ -11397,7 +13514,7 @@
             "nullable": true
           },
           "referenceData": {
-            "$ref": "#/components/schemas/ASC.Web.Files.Services.DocumentService.FileReferenceData`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+            "$ref": "#/components/schemas/ASC.Web.Files.Services.DocumentService.FileReferenceData<System.String>"
           },
           "title": {
             "type": "string",
@@ -11410,7 +13527,7 @@
         },
         "additionalProperties": false
       },
-      "ASC.Web.Files.Services.DocumentService.EditorConfiguration`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]": {
+      "ASC.Web.Files.Services.DocumentService.EditorConfiguration<System.Int32>": {
         "type": "object",
         "properties": {
           "actionLink": {
@@ -11434,7 +13551,7 @@
             "readOnly": true
           },
           "customization": {
-            "$ref": "#/components/schemas/ASC.Web.Files.Services.DocumentService.CustomizationConfig`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+            "$ref": "#/components/schemas/ASC.Web.Files.Services.DocumentService.CustomizationConfig<System.Int32>"
           },
           "embedded": {
             "$ref": "#/components/schemas/ASC.Web.Files.Services.DocumentService.EmbeddedConfig"
@@ -11491,7 +13608,7 @@
         },
         "additionalProperties": false
       },
-      "ASC.Web.Files.Services.DocumentService.EditorConfiguration`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]": {
+      "ASC.Web.Files.Services.DocumentService.EditorConfiguration<System.String>": {
         "type": "object",
         "properties": {
           "actionLink": {
@@ -11515,7 +13632,7 @@
             "readOnly": true
           },
           "customization": {
-            "$ref": "#/components/schemas/ASC.Web.Files.Services.DocumentService.CustomizationConfig`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+            "$ref": "#/components/schemas/ASC.Web.Files.Services.DocumentService.CustomizationConfig<System.String>"
           },
           "embedded": {
             "$ref": "#/components/schemas/ASC.Web.Files.Services.DocumentService.EmbeddedConfig"
@@ -11644,39 +13761,11 @@
         },
         "additionalProperties": false
       },
-      "ASC.Web.Files.Services.DocumentService.FileReferenceData`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]": {
-        "type": "object",
-        "properties": {
-          "fileKey": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "instanceId": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "ASC.Web.Files.Services.DocumentService.FileReferenceData`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]": {
-        "type": "object",
-        "properties": {
-          "fileKey": {
-            "type": "string",
-            "nullable": true
-          },
-          "instanceId": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "ASC.Web.Files.Services.DocumentService.FileReference`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]": {
+      "ASC.Web.Files.Services.DocumentService.FileReference<System.Int32>": {
         "type": "object",
         "properties": {
           "referenceData": {
-            "$ref": "#/components/schemas/ASC.Web.Files.Services.DocumentService.FileReferenceData`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+            "$ref": "#/components/schemas/ASC.Web.Files.Services.DocumentService.FileReferenceData<System.Int32>"
           },
           "error": {
             "type": "string",
@@ -11709,6 +13798,34 @@
         },
         "additionalProperties": false
       },
+      "ASC.Web.Files.Services.DocumentService.FileReferenceData<System.Int32>": {
+        "type": "object",
+        "properties": {
+          "fileKey": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "instanceId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ASC.Web.Files.Services.DocumentService.FileReferenceData<System.String>": {
+        "type": "object",
+        "properties": {
+          "fileKey": {
+            "type": "string",
+            "nullable": true
+          },
+          "instanceId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "ASC.Web.Files.Services.DocumentService.GobackConfig": {
         "type": "object",
         "properties": {
@@ -11719,7 +13836,7 @@
         },
         "additionalProperties": false
       },
-      "ASC.Web.Files.Services.DocumentService.InfoConfig`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]": {
+      "ASC.Web.Files.Services.DocumentService.InfoConfig<System.Int32>": {
         "type": "object",
         "properties": {
           "favorite": {
@@ -11755,7 +13872,7 @@
         },
         "additionalProperties": false
       },
-      "ASC.Web.Files.Services.DocumentService.InfoConfig`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]": {
+      "ASC.Web.Files.Services.DocumentService.InfoConfig<System.String>": {
         "type": "object",
         "properties": {
           "favorite": {
@@ -11791,7 +13908,7 @@
         },
         "additionalProperties": false
       },
-      "ASC.Web.Files.Services.DocumentService.LogoConfig`1[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]": {
+      "ASC.Web.Files.Services.DocumentService.LogoConfig<System.Int32>": {
         "type": "object",
         "properties": {
           "image": {
@@ -11815,7 +13932,7 @@
         },
         "additionalProperties": false
       },
-      "ASC.Web.Files.Services.DocumentService.LogoConfig`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]": {
+      "ASC.Web.Files.Services.DocumentService.LogoConfig<System.String>": {
         "type": "object",
         "properties": {
           "image": {
@@ -12052,7 +14169,7 @@
         },
         "additionalProperties": false
       },
-      "System.Collections.Generic.KeyValuePair`2[[System.Boolean, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]": {
+      "System.Collections.Generic.KeyValuePair<System.Boolean, System.String>": {
         "type": "object",
         "properties": {
           "key": {
@@ -12065,7 +14182,7 @@
         },
         "additionalProperties": false
       },
-      "System.Collections.Generic.KeyValuePair`2[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[Microsoft.Extensions.Primitives.StringValues, Microsoft.Extensions.Primitives, Version=7.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]": {
+      "System.Collections.Generic.KeyValuePair<System.String, Microsoft.Extensions.Primitives.StringValues>": {
         "type": "object",
         "properties": {
           "key": {
@@ -12266,6 +14383,12 @@
           }
         },
         "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "asc_auth_key": {
+        "type": "apiKey",
+        "in": "cookie"
       }
     }
   }
